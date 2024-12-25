@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="lunchChecker">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lunch Checker</title>
+  <link rel="stylesheet" href="styles/styles.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body ng-controller="LunchController as lunchCtrl">
+
+  <div class="container">
+    <h2>Lunch Checker</h2>
+
+    <!-- Textbox for lunch items -->
+    <label for="lunchItems">Enter your lunch items (comma-separated):</label>
+    <input type="text" id="lunchItems" ng-model="lunchCtrl.items" placeholder="cheese, apple, chips, ...">
+
+    <!-- Button to check if there are too many items -->
+    <button ng-click="lunchCtrl.checkLunch()">Check If Too Much</button>
+
+    <!-- Display message below the textbox -->
+    <div class="message" ng-class="{'enjoy': lunchCtrl.message === 'Enjoy!', 'too-much': lunchCtrl.message === 'Too much!', 'error': lunchCtrl.message === 'Please enter data first'}">
+      {{ lunchCtrl.message }}
+    </div>
+  </div>
+
+  <script src="scripts/script.js"></script>
+</body>
+</html>
